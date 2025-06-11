@@ -7,9 +7,9 @@ using Engine.Models;
 
 namespace Engine.View_models
 {
-    internal class GameSession
+    public class GameSession
     {
-        Player CurrentPlayer { get; set; }
+        public Player CurrentPlayer { get; set; }
 
         public GameSession()
         {

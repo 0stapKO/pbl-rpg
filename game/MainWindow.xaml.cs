@@ -8,6 +8,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Engine.View_models;
 
 namespace game
 {
@@ -16,9 +17,13 @@ namespace game
     /// </summary>
     public partial class MainWindow : Window
     {
+        private GameSession gameSession;
         public MainWindow()
         {
             InitializeComponent();
+            gameSession = new GameSession();
+
+            DataContext = gameSession;
         }
     }
 }

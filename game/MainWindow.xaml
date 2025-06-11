@@ -5,12 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:game"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="MainWindow" Height="600" Width="1000">
+    <Grid Margin="0,0,0,-16">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="100"/>
+            <RowDefinition Height="230"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
@@ -18,7 +18,34 @@
         </Grid.ColumnDefinitions>
 
         <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Content="Welcome to the Game!" FontSize="24" Background="Bisque"/>
-        <Label Grid.Row="1" Grid.Column="0" Content="This is a simple game window." FontSize="16" Margin="10" Background="LightCyan"/>
         <Label Grid.Row="2" Grid.Column="0" Content="Enjoy your game!" FontSize="18"  Margin="10" Background="LightGreen"/>
+        <Grid Grid.Row="1" Grid.Column="0" Background="LightGray">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Label Grid.Row="0" Grid.Column="0" Content="Player Name:" Margin="10"/>
+            <Label Grid.Row="1" Grid.Column="0" Content="Class:" Margin="10"/>
+            <Label Grid.Row="2" Grid.Column="0" Content="HP:" Margin="10"/>
+            <Label Grid.Row="3" Grid.Column="0" Content="XP:" Margin="10"/>
+            <Label Grid.Row="4" Grid.Column="0" Content="Level:" Margin="10"/>
+            <Label Grid.Row="5" Grid.Column="0" Content="Gold:" Margin="10"/>
+
+            <Label Grid.Row="0" Grid.Column="1" Content="{Binding CurrentPlayer.Name}" Margin="10"/>
+            <Label Grid.Row="1" Grid.Column="1" Content="{Binding CurrentPlayer.Class}" Margin="10"/>
+            <Label Grid.Row="2" Grid.Column="1" Content="{Binding CurrentPlayer.HitPoints}" Margin="10"/>
+            <Label Grid.Row="3" Grid.Column="1" Content="{Binding CurrentPlayer.ExperiencePoints}" Margin="10"/>
+            <Label Grid.Row="4" Grid.Column="1" Content="{Binding CurrentPlayer.Level}" Margin="10"/>
+            <Label Grid.Row="5" Grid.Column="1" Content="{Binding CurrentPlayer.Gold}" Margin="10"/>
+        </Grid>
     </Grid>
 </Window>
