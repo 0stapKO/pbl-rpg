@@ -10,11 +10,15 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="100"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
+
+        <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Content="Welcome to the Game!" FontSize="24" Background="Bisque"/>
+        <Label Grid.Row="1" Grid.Column="0" Content="This is a simple game window." FontSize="16" Margin="10" Background="LightCyan"/>
+        <Label Grid.Row="2" Grid.Column="0" Content="Enjoy your game!" FontSize="18"  Margin="10" Background="LightGreen"/>
     </Grid>
 </Window>

@@ -18,3 +18,4 @@ C:\Users\ostap\source\repos\game\game\obj\Debug\net8.0-windows\refint\game.dll
 C:\Users\ostap\source\repos\game\game\obj\Debug\net8.0-windows\game.pdb
 C:\Users\ostap\source\repos\game\game\obj\Debug\net8.0-windows\game.genruntimeconfig.cache
 C:\Users\ostap\source\repos\game\game\obj\Debug\net8.0-windows\ref\game.dll
+C:\Users\ostap\source\repos\game\game\obj\Debug\net8.0-windows\game.sourcelink.json
