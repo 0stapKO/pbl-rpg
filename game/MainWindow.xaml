@@ -47,5 +47,46 @@
             <Label Grid.Row="4" Grid.Column="1" Content="{Binding CurrentPlayer.Level}" Margin="10"/>
             <Label Grid.Row="5" Grid.Column="1" Content="{Binding CurrentPlayer.Gold}" Margin="10"/>
         </Grid>
+
+        <Grid Grid.Row="1" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Border Grid.Row="0" Grid.Column="1" Background="LightGoldenrodYellow" BorderBrush="LightSlateGray" BorderThickness="1">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Label Grid.Row="0" Content="{Binding CurrentLocation.Name}" HorizontalContentAlignment="Center"/>
+                    <Image Grid.Row="1"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           Height="125"
+                           Width="125"
+                           Source="{Binding CurrentLocation.ImageName}" />
+
+                    <Label Grid.Row="2" Content="{Binding CurrentLocation.Description}" HorizontalContentAlignment="Center"/>
+                </Grid>
+            </Border>
+        </Grid>
+
+        <Grid Grid.Row="2" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="LeftButton" Grid.Column="1" Content="Left" Click="OnClickMoveLeft" HorizontalAlignment="Left" Margin="650,87,0,0" VerticalAlignment="Top" Height="35" Width="35"/>
+            <Button x:Name="DownButton" Grid.Column="1" Content="Down" Click="OnClickMoveDown" HorizontalAlignment="Left" Margin="700,135.4,0,0" VerticalAlignment="Top" Height="34" Width="35"/>
+            <Button x:Name="UpButton" Grid.Column="1" Content="Up" Click="OnClickMoveUp" HorizontalAlignment="Left" Margin="700,37,0,0" VerticalAlignment="Top" Height="35" Width="35"/>
+            <Button x:Name="RightButton" Grid.Column="1" Content="Right" Click="OnClickMoveRight" HorizontalAlignment="Left" Margin="750,87,0,0" VerticalAlignment="Top" Height="35" Width="35"/>
+
+        </Grid>
     </Grid>
 </Window>

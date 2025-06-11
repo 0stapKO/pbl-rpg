@@ -25,5 +25,22 @@ namespace game
 
             DataContext = gameSession;
         }
+
+        private void OnClickMoveUp(object sender, RoutedEventArgs e)
+        {
+            gameSession.MoveUp();
+        }
+        private void OnClickMoveDown(object sender, RoutedEventArgs e)
+        {
+            gameSession.MoveDown();
+        }
+        private void OnClickMoveLeft(object sender, RoutedEventArgs e)
+        {
+            gameSession.MoveLeft();
+        }
+        private void OnClickMoveRight(object sender, RoutedEventArgs e)
+        {
+            gameSession.MoveRight();
+        }
     }
 }

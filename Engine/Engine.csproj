@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Images\Locations\house.png" />
+  </ItemGroup>
+
 </Project>
