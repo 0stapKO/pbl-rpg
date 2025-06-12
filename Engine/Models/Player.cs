@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
@@ -52,7 +53,12 @@ namespace Engine.Models
             }
         }
 
-        public Player() { }
+        public ObservableCollection<Item> Inventory { get; set; }
+        
+        public Player()
+        {
+            Inventory = new ObservableCollection<Item>();
+        }
 
     }
 }

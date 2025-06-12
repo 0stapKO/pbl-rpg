@@ -22,7 +22,18 @@
         </Grid.ColumnDefinitions>
 
         <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Content="Welcome to the Game!" FontSize="24" Background="Bisque"/>
-        <Label Grid.Row="2" Grid.Column="0" Content="Enjoy your game!" FontSize="18"  Margin="10" Background="LightGreen"/>
+        <Grid Grid.Row="2" Grid.Column="0" Background="Green">
+            <TabControl>
+                <TabItem Header="Inventory">
+                    <DataGrid ItemsSource="{Binding CurrentPlayer.Inventory}" AutoGenerateColumns="False" HeadersVisibility="Column">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="Auto"/>
+                            <DataGridTextColumn Header="Price" Binding="{Binding Price}" Width="Auto"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </TabItem>
+            </TabControl>
+        </Grid>
         <Grid Grid.Row="1" Grid.Column="0" Background="LightGray">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
