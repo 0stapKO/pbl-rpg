@@ -9,7 +9,7 @@ using System.ComponentModel;
 
 namespace Engine.View_models
 {
-    public class GameSession : INotifyPropertyChanged
+    public class GameSession: BaseNotificationClass
     {
         private Location currentLocation;
         public Player CurrentPlayer { get; set; }
@@ -35,27 +35,29 @@ namespace Engine.View_models
             set 
             {
                 currentLocation = value;
-                OnPropertyChanged("CurrentLocation");
-                OnPropertyChanged("CanMoveUp");
-                OnPropertyChanged("CanMoveDown");
-                OnPropertyChanged("CanMoveLeft");
-                OnPropertyChanged("CanMoveRight");
+                OnPropertyChanged(nameof(CurrentLocation));
+                OnPropertyChanged(nameof(CanMoveUp));
+                OnPropertyChanged(nameof(CanMoveDown));
+                OnPropertyChanged(nameof(CanMoveLeft));
+                OnPropertyChanged(nameof(CanMoveRight));
             }
         }
         public World CurrentWorld { get; set; }
         public GameSession()
         {
-            CurrentPlayer = new Player();
-            CurrentPlayer.Name = "Hero";
-            CurrentPlayer.Class = "Warrior";
-            CurrentPlayer.HitPoints = 100;
-            CurrentPlayer.ExperiencePoints = 0;
-            CurrentPlayer.Level = 1;
-            CurrentPlayer.Gold = 50;
+            CurrentPlayer = new Player
+            {
+                Name = "Hero",
+                Class = "Warrior",
+                HitPoints = 100,
+                ExperiencePoints = 0,
+                Level = 1,
+                Gold = 50,
+            };
 
 
-            WorldFactory factory = new WorldFactory();
-            CurrentWorld = factory.CreateWorld();
+
+            CurrentWorld = WorldFactory.CreateWorld();
 
             CurrentLocation = CurrentWorld.LocationAt(0, -1);
         }
@@ -64,24 +66,32 @@ namespace Engine.View_models
 
         public void MoveUp()
         {
-            CurrentLocation = CurrentWorld.LocationAt(CurrentLocation.X, CurrentLocation.Y + 1);
+            if (CanMoveUp)
+            {
+                CurrentLocation = CurrentWorld.LocationAt(CurrentLocation.X, CurrentLocation.Y + 1);
+            }
         }
         public void MoveDown()
         {
-            CurrentLocation = CurrentWorld.LocationAt(CurrentLocation.X, CurrentLocation.Y - 1);
+            if (CanMoveDown)
+            {
+                CurrentLocation = CurrentWorld.LocationAt(CurrentLocation.X, CurrentLocation.Y - 1);
+            }
         }
         public void MoveLeft()
         {
-            CurrentLocation = CurrentWorld.LocationAt(CurrentLocation.X - 1, CurrentLocation.Y);
+            if (CanMoveLeft)
+            {
+                CurrentLocation = CurrentWorld.LocationAt(CurrentLocation.X - 1, CurrentLocation.Y);
+            }
+
         }
         public void MoveRight()
         {
-            CurrentLocation = CurrentWorld.LocationAt(CurrentLocation.X + 1, CurrentLocation.Y);
-        }
-        public event PropertyChangedEventHandler PropertyChanged;
-        protected void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            if (CanMoveRight)
+            {
+                CurrentLocation = CurrentWorld.LocationAt(CurrentLocation.X + 1, CurrentLocation.Y);
+            }
         }
     }
 }

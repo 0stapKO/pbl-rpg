@@ -7,9 +7,9 @@ using Engine.Models;
 
 namespace Engine.Factories
 {
-    internal class WorldFactory
+    internal static class WorldFactory
     {
-        internal World CreateWorld()
+        internal static World CreateWorld()
         {
             World world = new World();
             world.AddLocation(0, -1, "Home", "You live here", "C:\\Users\\ostap\\source\\repos\\game\\Engine\\Images\\Locations\\home.png");
