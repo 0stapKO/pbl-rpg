@@ -13,6 +13,22 @@ namespace Engine.View_models
     {
         private Location currentLocation;
         public Player CurrentPlayer { get; set; }
+        public bool CanMoveUp
+        {
+            get { return CurrentWorld.LocationAt(CurrentLocation.X, CurrentLocation.Y + 1) != null; }
+        }
+        public bool CanMoveDown
+        {
+            get { return CurrentWorld.LocationAt(CurrentLocation.X, CurrentLocation.Y - 1) != null; }
+        }
+        public bool CanMoveLeft
+        {
+            get { return CurrentWorld.LocationAt(CurrentLocation.X - 1, CurrentLocation.Y) != null; }
+        }
+        public bool CanMoveRight
+        {
+            get { return CurrentWorld.LocationAt(CurrentLocation.X + 1, CurrentLocation.Y) != null; }
+        }
         public Location CurrentLocation
         {
             get { return currentLocation; }
@@ -20,6 +36,10 @@ namespace Engine.View_models
             {
                 currentLocation = value;
                 OnPropertyChanged("CurrentLocation");
+                OnPropertyChanged("CanMoveUp");
+                OnPropertyChanged("CanMoveDown");
+                OnPropertyChanged("CanMoveLeft");
+                OnPropertyChanged("CanMoveRight");
             }
         }
         public World CurrentWorld { get; set; }
@@ -39,6 +59,8 @@ namespace Engine.View_models
 
             CurrentLocation = CurrentWorld.LocationAt(0, -1);
         }
+
+
 
         public void MoveUp()
         {

@@ -6,6 +6,10 @@
         xmlns:local="clr-namespace:game"
         mc:Ignorable="d"
         Title="MainWindow" Height="600" Width="1000">
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibility"/>
+    </Window.Resources>
+    
     <Grid Margin="0,0,0,-16">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -82,10 +86,10 @@
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Button x:Name="LeftButton" Grid.Column="1" Content="Left" Click="OnClickMoveLeft" HorizontalAlignment="Left" Margin="650,87,0,0" VerticalAlignment="Top" Height="35" Width="35"/>
-            <Button x:Name="DownButton" Grid.Column="1" Content="Down" Click="OnClickMoveDown" HorizontalAlignment="Left" Margin="700,135.4,0,0" VerticalAlignment="Top" Height="34" Width="35"/>
-            <Button x:Name="UpButton" Grid.Column="1" Content="Up" Click="OnClickMoveUp" HorizontalAlignment="Left" Margin="700,37,0,0" VerticalAlignment="Top" Height="35" Width="35"/>
-            <Button x:Name="RightButton" Grid.Column="1" Content="Right" Click="OnClickMoveRight" HorizontalAlignment="Left" Margin="750,87,0,0" VerticalAlignment="Top" Height="35" Width="35"/>
+            <Button x:Name="LeftButton" Grid.Column="1" Content="Left" Click="OnClickMoveLeft" Visibility="{Binding CanMoveLeft, Converter={StaticResource BooleanToVisibility}}" HorizontalAlignment="Left" Margin="650,87,0,0" VerticalAlignment="Top" Height="35" Width="35"/>
+            <Button x:Name="DownButton" Grid.Column="1" Content="Down" Click="OnClickMoveDown" Visibility="{Binding CanMoveDown, Converter={StaticResource BooleanToVisibility}}" HorizontalAlignment="Left" Margin="700,135.4,0,0" VerticalAlignment="Top" Height="34" Width="35"/>
+            <Button x:Name="UpButton" Grid.Column="1" Content="Up" Click="OnClickMoveUp" Visibility="{Binding CanMoveUp, Converter={StaticResource BooleanToVisibility}}" HorizontalAlignment="Left" Margin="700,37,0,0" VerticalAlignment="Top" Height="35" Width="35"/>
+            <Button x:Name="RightButton" Grid.Column="1" Content="Right" Click="OnClickMoveRight" Visibility="{Binding CanMoveRight, Converter={StaticResource BooleanToVisibility}}" HorizontalAlignment="Left" Margin="750,87,0,0" VerticalAlignment="Top" Height="35" Width="35"/>
 
         </Grid>
     </Grid>
